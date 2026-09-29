@@ -7,7 +7,7 @@ function Player(name, token) { // Only manages creation of players
     return {name, token, getPlayerInfo};
 };
 
-const Gameboard = (() => { // Only manages STATE of the gameboard
+const gameboard = (() => { // Only manages STATE of the gameboard
     let board = [];
 
     for (let i = 0; i < 3; i++) {
@@ -29,5 +29,8 @@ const Gameboard = (() => { // Only manages STATE of the gameboard
     return {getBoard,  addToken};
 })();
 
-player1 = Player("Affiq", "X");
-Gameboard.addToken(player1, 1, 2);
+const gameController = (() => { // Meant to control the flow of the game
+    
+})();
+// player1 = Player("Affiq", "X");
+// Gameboard.addToken(player1, 1, 2);
