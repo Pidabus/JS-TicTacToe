@@ -23,14 +23,35 @@ const gameboard = (() => { // Only manages STATE of the gameboard
         if(board[slotRow][slotColumn] === 0) {
             board[slotRow][slotColumn] = player.token;
         };
-        console.log(getBoard());
     };
 
     return {getBoard,  addToken};
 })();
 
-const gameController = (() => { // Meant to control the flow of the game
+function gameController () { // Meant to control the flow of the game
+    const board = gameboard; //board holds all the objects from gameboard
     
-})();
-// player1 = Player("Affiq", "X");
-// Gameboard.addToken(player1, 1, 2);
+    const player1 = Player("player 1", "X");
+    const player2 = Player("player 2", "0"); //This is a zero in string form, not an O (letter).
+
+    let activePlayer = player1;
+
+    const getActivePlayer = () => {
+        return activePlayer;
+    }
+
+    const switchPlayer = () => {
+        activePlayer = activePlayer === player1 ? player2 : player1;
+    }
+
+    const playRound = (slotRow, slotColumn) => {
+        board.addToken(activePlayer, slotRow, slotColumn);
+        switchPlayer();
+        
+        console.log(board.getBoard());
+    }    
+
+    return {board, getActivePlayer, switchPlayer, playRound};
+};
+
+const game = gameController(); // Important to store the methods from gameController.
