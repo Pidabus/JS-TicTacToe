@@ -1,4 +1,4 @@
-function Gameboard() {
+const initializeGame = (() => {
     let board = [];
 
     for (let i = 0; i < 3; i++){
@@ -7,4 +7,4 @@ function Gameboard() {
             board[i][j] = 0;
         }
     }
-}
+}) ();
