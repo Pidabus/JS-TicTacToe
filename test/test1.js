@@ -16,4 +16,3 @@ Object.defineProperty(user, 'fullName', {
 // console.log(user.fullName); // John Smith
 
 // for(let key in user) console.log(key); // name, surname
-
